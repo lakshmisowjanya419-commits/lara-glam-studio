@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo.jpeg";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -34,8 +35,8 @@ const Navigation = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-soft py-4"
-          : "bg-transparent py-6"
+          ? "bg-background/95 backdrop-blur-md shadow-soft py-3"
+          : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto px-6 lg:px-12">
@@ -43,13 +44,20 @@ const Navigation = () => {
           {/* Logo */}
           <a
             href="#"
-            className="font-serif text-xl text-foreground hover:text-gold transition-colors duration-300"
+            className="flex items-center gap-3 group"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            lara<span className="text-gold">_</span>glam<span className="text-gold">_</span>loop
+            <img 
+              src={logo} 
+              alt="Lara Glam Loop Logo" 
+              className="h-12 w-12 rounded-full object-cover border-2 border-gold/30 group-hover:border-gold transition-colors duration-300"
+            />
+            <span className="hidden sm:block font-serif text-lg text-foreground group-hover:text-gold transition-colors duration-300">
+              LARA<span className="text-gold"> Glam_loop</span>
+            </span>
           </a>
 
           {/* Desktop Navigation */}

@@ -1,13 +1,24 @@
+import logo from "@/assets/logo.jpeg";
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 bg-foreground">
+    <footer className="py-16 bg-foreground">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center">
+          {/* Logo */}
+          <div className="flex justify-center mb-6">
+            <img 
+              src={logo} 
+              alt="Lara Glam Loop Logo" 
+              className="h-20 w-20 rounded-full object-cover border-2 border-gold/50"
+            />
+          </div>
+          
           {/* Brand Name */}
           <p className="font-serif text-2xl text-background mb-2">
-            lara<span className="text-gold">_</span>glam<span className="text-gold">_</span>loop
+            LARA<span className="text-gold"> Glam_loop</span>
           </p>
           
           {/* Tagline */}
@@ -20,7 +31,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <p className="font-sans text-xs text-background/40">
-            © {currentYear} lara_glam_loop. All rights reserved.
+            © {currentYear} LARA Glam_loop. All rights reserved.
           </p>
         </div>
       </div>
