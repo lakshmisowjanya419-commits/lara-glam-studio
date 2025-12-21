@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/lara-glam-studio/",   // 👈 ADD THIS LINE
+  base: "/",   // 👈 ADD THIS LINE
   server: {
     host: "::",
     port: 8080,
