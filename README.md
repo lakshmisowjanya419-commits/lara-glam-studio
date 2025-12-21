@@ -71,3 +71,17 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+
+## GitHub Pages
+
+- **Pages status badge:** (deploys via GitHub Actions) Add this badge to show workflow status:
+
+	![Deploy to Pages](https://github.com/lakshmisowjanya419-commits/lara-glam-studio/actions/workflows/pages.yml/badge.svg)
+
+- **Quick troubleshooting if you still see 404:**
+	- Check the Actions tab and confirm the `Deploy to GitHub Pages` workflow ran successfully.
+	- In GitHub Settings → Pages, ensure the Source is set to `GitHub Actions` (the workflow uses the official Pages deploy actions).
+	- If you use a custom domain, verify the `CNAME` and DNS records are correct and that Pages shows the domain as active.
+	- Confirm `dist/` was uploaded by the workflow (check the deploy job logs). If the build output directory differs, update `path` in `.github/workflows/pages.yml`.
+
+If you want, I can also add a `docs/` fallback or commit the built `dist/` into `docs/` for immediate Pages publishing without Actions.
