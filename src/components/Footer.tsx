@@ -1,4 +1,12 @@
 import logo from "@/assets/logo.jpeg";
+import { Instagram, Facebook } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -6,7 +14,13 @@ const Footer = () => {
   return (
     <footer className="py-16 bg-foreground">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
           {/* Logo */}
           <div className="flex justify-center mb-6">
             <img 
@@ -26,6 +40,36 @@ const Footer = () => {
             Soft Glam to Bridal Elegance
           </p>
 
+          {/* Social Icons */}
+          <div className="flex justify-center items-center gap-4 mb-6">
+            {/* Instagram - Active */}
+            <motion.a
+              href="https://www.instagram.com/lara_glam_loop/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.15 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-gold transition-colors duration-300 group"
+              aria-label="Follow us on Instagram"
+            >
+              <Instagram className="w-5 h-5 text-background group-hover:text-foreground transition-colors duration-300" />
+            </motion.a>
+
+            {/* Facebook - Inactive with Tooltip */}
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <div className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center opacity-50 cursor-not-allowed">
+                    <Facebook className="w-5 h-5 text-background/60" />
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent side="top" className="bg-card text-foreground border-border">
+                  <p className="font-sans text-xs">Link will be updated soon</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
+
           {/* Divider */}
           <div className="w-16 h-px bg-gold mx-auto mb-6" />
 
@@ -33,7 +77,7 @@ const Footer = () => {
           <p className="font-sans text-xs text-background/40">
             © {currentYear} LARA Glam_loop. All rights reserved.
           </p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

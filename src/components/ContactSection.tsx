@@ -1,11 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Calendar } from "lucide-react";
+import { motion } from "framer-motion";
 
 const ContactSection = () => {
   return (
     <section id="contact" className="py-24 lg:py-32 bg-background">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="max-w-2xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-2xl mx-auto text-center"
+        >
           {/* Section Header */}
           <p className="font-sans text-sm tracking-[0.3em] uppercase text-gold mb-4">
             Get In Touch
@@ -18,24 +25,37 @@ const ContactSection = () => {
           </p>
 
           {/* CTA Button */}
-          <Button
-            variant="whatsapp"
-            size="xl"
-            className="group mb-8"
-            onClick={() => window.open("https://wa.me/000000000", "_blank")}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <MessageCircle className="w-5 h-5 transition-transform group-hover:scale-110" />
-            Connect on WhatsApp
-          </Button>
+            <Button
+              variant="whatsapp"
+              size="xl"
+              className="group mb-8"
+              onClick={() => window.open("https://wa.me/918897298801", "_blank")}
+            >
+              <MessageCircle className="w-5 h-5 transition-transform group-hover:scale-110" />
+              Connect on WhatsApp
+            </Button>
+          </motion.div>
 
           {/* Note */}
-          <div className="flex items-center justify-center gap-2 text-muted-foreground">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex items-center justify-center gap-2 text-muted-foreground"
+          >
             <Calendar className="w-4 h-4 text-gold" />
             <p className="font-sans text-sm">
               Advance bookings recommended for bridal services
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
