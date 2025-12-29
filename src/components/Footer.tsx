@@ -1,12 +1,6 @@
 import logo from "@/assets/logo.jpeg";
 import { Instagram, Facebook } from "lucide-react";
 import { motion } from "framer-motion";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -55,19 +49,18 @@ const Footer = () => {
               <Instagram className="w-5 h-5 text-background group-hover:text-foreground transition-colors duration-300" />
             </motion.a>
 
-            {/* Facebook - Inactive with Tooltip */}
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <div className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center opacity-50 cursor-not-allowed">
-                    <Facebook className="w-5 h-5 text-background/60" />
-                  </div>
-                </TooltipTrigger>
-                <TooltipContent side="top" className="bg-card text-foreground border-border">
-                  <p className="font-sans text-xs">Link will be updated soon</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
+            {/* Facebook - Active */}
+            <motion.a
+              href="https://www.facebook.com/profile.php?id=61585750791868"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.15 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-gold transition-colors duration-300 group"
+              aria-label="Follow us on Facebook"
+            >
+              <Facebook className="w-5 h-5 text-background group-hover:text-foreground transition-colors duration-300" />
+            </motion.a>
           </div>
 
           {/* Divider */}
